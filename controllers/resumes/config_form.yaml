@@ -1,0 +1,33 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: jetminds.job::lang.controllers.resumes.config.form.name
+
+# Model Form Field configuration
+form: $/jetminds/job/models/resume/fields.yaml
+
+# Model Class name
+modelClass: JetMinds\Job\Models\Resume
+
+# Default redirect location
+defaultRedirect: jetminds/job/resumes
+
+# Create page
+create:
+    title: jetminds.job::lang.controllers.resumes.config.form.create.title
+    redirect: jetminds/job/resumes/update/:id
+    redirectClose: jetminds/job/resumes
+
+# Update page
+update:
+    title: jetminds.job::lang.controllers.resumes.config.form.update.title
+    redirect: jetminds/job/resumes
+    redirectClose: jetminds/job/resumes
+
+# Preview page
+preview:
+    title: jetminds.job::lang.controllers.resumes.config.form.preview.title
+    redirect: jetminds/job/resumes/preview/:id
+    redirectClose: jetminds/job/resumes

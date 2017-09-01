@@ -1,0 +1,80 @@
+<div class="control-popup modal fade" id="onInviteSubmit" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">
+					<?= e(trans('jetminds.job::lang.controllers.resumes.form.invite.form.title')) ?>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<?= Form::ajax('onInviteSubmit') ?>
+
+				<input type="hidden" name="id" value="<?= e($formModel->id) ?>">
+				<input type="hidden" name="name_to" value="<?= e($formModel->first_name) ?>">
+				<input type="hidden" name="email_to" value="<?= e($formModel->email) ?>">
+
+				<div class="form-group text-field span-full is-required ">
+					<label><?= e(trans('jetminds.job::lang.controllers.resumes.form.invite.form.fields.subject.label')) ?></label>
+					<input type="text" name="subject" value="Re: <?= e($formModel->subject) ?>" class="form-control " required />
+				</div>
+
+				<div class="form-group widget-field span-full" data-field-name="date" id="Form-field-Invite-date-group">
+
+					<label for="Form-field-Invite-date">
+						<?= e(trans('jetminds.job::lang.controllers.resumes.form.invite.form.fields.date.label')) ?>
+					</label>
+
+					<!-- Widget -->
+					<div id="DatePicker-Invite-date" class="field-datepicker" data-control="datepicker" data-disposable="">
+						<div class="row">
+							<div class="col-md-6">
+								<!-- Date -->
+								<div class="input-with-icon right-align">
+									<i class="icon icon-calendar-o"></i>
+									<input
+											type="text"
+											id="DatePicker-form-date"
+											class="form-control align-right"
+											autocomplete="off"
+											data-datepicker=""
+									>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<!-- Time -->
+								<div class="input-with-icon right-align">
+									<i class="icon icon-clock-o"></i>
+									<input
+											type="text"
+											id="DatePicker-form-date-time"
+											class="form-control align-right"
+											autocomplete="off"
+											data-timepicker=""
+									>
+								</div>
+							</div>
+						</div>
+						<!-- Data locker -->
+						<input type="hidden" name="date" id="Form-field-Invite-date" value="" data-datetime-value="">
+					</div>
+				</div>
+
+				<div class="form-group textarea-field  span-full is-required " >
+					<label><?= e(trans('jetminds.job::lang.controllers.resumes.form.invite.form.fields.message.label')) ?></label>
+					<textarea type="text" name="message" id="message" class="form-control field-textarea size-huge"></textarea>
+				</div>
+
+				<div class="form-buttons">
+					<button
+							type="button"
+							data-request="onInviteSubmit"
+							class="btn btn-primary oc-icon-reply">
+						<?= e(trans('jetminds.job::lang.controllers.resumes.form.invite.form.button.label')) ?>
+					</button>
+				</div>
+				<?= Form::close() ?>
+			</div>
+		</div>
+	</div>
+</div>

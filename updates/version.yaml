@@ -1,0 +1,4 @@
+1.0.1:
+    - Initialize Job
+    - create_resumes_table.php
+    - create_vacancies_table.php

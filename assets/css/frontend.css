@@ -1,0 +1,7 @@
+.flash {
+    display: none;
+}
+
+.flash.active {
+    display: block;
+}

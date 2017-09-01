@@ -1,0 +1,42 @@
+fields:
+
+    redirect_to_page:
+        label: jetminds.job::lang.models.setting.redirect.switch.label
+        commentAbove: jetminds.job::lang.models.setting.redirect.switch.comment
+        type: switch
+        span: left
+
+    notification:
+        label: jetminds.job::lang.models.setting.notification.switch.label
+        commentAbove: jetminds.job::lang.models.setting.notification.switch.comment
+        type: switch
+        span: right
+
+    redirect_to_url:
+        label: jetminds.job::lang.models.setting.redirect.url.label
+        commentAbove: jetminds.job::lang.models.setting.redirect.url.comment
+        type: dropdown
+        span: left
+
+    notification_email:
+        label: jetminds.job::lang.models.setting.notification.email.label
+        commentAbove: jetminds.job::lang.models.setting.notification.email.comment
+        type: text
+        span: right
+
+    auto_response:
+        label: jetminds.job::lang.models.setting.auto_response.label
+        commentAbove: jetminds.job::lang.models.setting.auto_response.comment
+        type: switch
+        span: left
+
+    section_alerts:
+        label: jetminds.job::lang.models.setting.alerts.section.label
+        type: section
+        span: left
+
+    alert_success:
+        label: jetminds.job::lang.models.setting.alerts.success.label
+        commentAbove: jetminds.job::lang.models.setting.alerts.success.comment
+        type: text
+        span: left

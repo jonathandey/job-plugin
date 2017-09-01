@@ -1,0 +1,6 @@
+.layout-resume .layout > .form-sidebar {
+    display: none;
+}
+.layout-resume nav#layout-mainmenu ul.mainmenu-toolbar li.mainmenu-preview a {
+    padding: 20px 10px;
+}

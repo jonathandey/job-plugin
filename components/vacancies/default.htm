@@ -1,0 +1,47 @@
+{% set vacancies = __SELF__.vacancies %}
+
+<ul class="row vacancy-list list-unstyled">
+	{% for vacancy in vacancies %}
+	<li>
+		<a href="{{ vacancy.url }}">
+			<h3>{{ vacancy.title }}</h3>
+		</a>
+		<div class="excerpt">
+			<p>{{ vacancy.excerpt }}</p>
+		</div>
+		<div class="requirements">
+			{% for requirement in vacancy.requirements %}
+			<p>{{ requirement.title }}</p>
+			{% endfor %}
+		</div>
+
+		<div class="expectations">
+			{% for expectation in vacancy.expectations %}
+			<p>{{ expectation.title }}</p>
+			{% endfor %}
+		</div>
+
+	</li>
+	{% else %}
+	<li class="no-data">{{ noVacanciesMessage }}</li>
+	{% endfor %}
+</ul>
+
+
+{% if vacancies.lastPage > 1 %}
+<ul class="pagination">
+	{% if vacancies.currentPage > 1 %}
+	<li><a href="{{ this.page.baseFileName|page({ (pageParam): (vacancies.currentPage-1) }) }}">Prev</a></li>
+	{% endif %}
+
+	{% for page in 1..vacancies.lastPage %}
+	<li class="{{ vacancies.currentPage == page ? 'active' : null }}">
+		<a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+	</li>
+	{% endfor %}
+
+	{% if vacancies.lastPage > vacancies.currentPage %}
+	<li><a href="{{ this.page.baseFileName|page({ (pageParam): (vacancies.currentPage+1) }) }}">Next</a></li>
+	{% endif %}
+</ul>
+{% endif %}

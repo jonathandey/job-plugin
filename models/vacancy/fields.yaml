@@ -1,0 +1,62 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        title:
+            label: jetminds.job::lang.models.vacancy.fields.title.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            type: text
+            span: left
+
+        slug:
+            label: jetminds.job::lang.models.vacancy.fields.slug.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            type: text
+            span: right
+            preset:
+                field: title
+                type: slug
+        published:
+            label: jetminds.job::lang.models.vacancy.fields.published.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            type: checkbox
+            span: left
+
+        published_at:
+            label: jetminds.job::lang.models.vacancy.fields.published_at.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            cssClass: checkbox-align
+            type: datepicker
+            mode: datetime
+            trigger:
+                action: enable
+                field: published
+                condition: checked
+            span: left
+
+        description:
+            label: jetminds.job::lang.models.vacancy.fields.description.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            type: textarea
+            size: huge
+            span: full
+
+        requirements:
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.requirements
+            prompt: jetminds.job::lang.models.vacancy.fields.requirements.prompt
+            type: repeater
+            form:
+                fields:
+                    title:
+                        type: text
+
+        expectations:
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.expectations
+            prompt: jetminds.job::lang.models.vacancy.fields.expectations.prompt
+            type: repeater
+            form:
+                fields:
+                    title:
+                        type: text

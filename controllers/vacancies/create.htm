@@ -1,0 +1,52 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('jetminds/job/vacancies') ?>"><?= e(trans('jetminds.job::lang.controllers.vacancies.form.breadcrumb.label')) ?></a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+
+        <div class="layout-row">
+            <?= $this->formRender() ?>
+        </div>
+
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="<?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.create.indicator')) ?>"
+                    class="btn btn-primary">
+	                <?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.create.label')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter, cmd+enter"
+                    data-load-indicator="<?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.create&close.indicator')) ?>"
+                    class="btn btn-default">
+	                <?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.create&close.label')) ?>
+                </button>
+                <a href="<?= Backend::url('jetminds/job/vacancies') ?>" class="btn btn-default">
+	                <?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.cancel.label')) ?>
+                </a>
+            </div>
+        </div>
+
+    <?= Form::close() ?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+	    <a href="<?= Backend::url('jetminds/job/vacancies') ?>" class="btn btn-default">
+		    <?= e(trans('jetminds.job::lang.controllers.vacancies.form.buttons.return.label')) ?>
+	    </a>
+    </p>
+
+<?php endif ?>

@@ -1,0 +1,18 @@
+{% set vacancy = __SELF__.vacancy %}
+
+<div class="row">
+	<h3>{{ vacancy.title }}</h3>
+	<div class="excerpt">
+		<p>{{ vacancy.excerpt }}</p>
+	</div>
+	<div class="requirements">
+		{% for requirement in vacancy.requirements %}
+		<p>{{ requirement.title }}</p>
+		{% endfor %}
+	</div>
+	<div class="expectations">
+		{% for expectation in vacancy.expectations %}
+		<p>{{ expectation.title }}</p>
+		{% endfor %}
+	</div>
+</div>

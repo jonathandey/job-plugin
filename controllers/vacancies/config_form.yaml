@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: jetminds.job::lang.controllers.vacansies.config.form.name
+
+# Model Form Field configuration
+form: $/jetminds/job/models/vacancy/fields.yaml
+
+# Model Class name
+modelClass: JetMinds\Job\Models\Vacancy
+
+# Default redirect location
+defaultRedirect: jetminds/job/vacancies
+
+# Create page
+create:
+    title: jetminds.job::lang.controllers.vacancies.config.form.create.title
+    redirect: jetminds/job/vacancies/update/:id
+    redirectClose: jetminds/job/vacancies
+
+# Update page
+update:
+    title: jetminds.job::lang.controllers.vacancies.config.form.update.title
+    redirect: jetminds/job/vacancies
+    redirectClose: jetminds/job/vacancies
+
+# Preview page
+preview:
+    title: jetminds.job::lang.controllers.vacancies.config.form.preview.title

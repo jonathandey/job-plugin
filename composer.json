@@ -1,0 +1,20 @@
+{
+    "name": "jetmindsgroup/job-plugin",
+    "description": "Create excellent job listings and get detailed summaries.",
+    "keywords": ["october", "octobercms", "job"],
+    "homepage": "https://octobercms.com/plugin/jetminds-job",
+    "type": "october-plugin",
+    "require": {
+        "php": ">=5.5.9",
+        "composer/installers": "~1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Sukhorukov",
+            "email": "sukhorukov@jetminds.ru",
+            "role": "Founder"
+        }
+    ],
+    "minimum-stability": "dev"
+}

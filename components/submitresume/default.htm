@@ -1,0 +1,129 @@
+<form class="form-resume" data-request="{{ __SELF__ }}::onSubmitResume" data-request-validate xmlns="http://www.w3.org/1999/html">
+
+	<h3>General</h3>
+
+	<div class="form-group col-sm-6">
+		<input type="text" name="first_name" class="form-control" placeholder="First Name"/>
+		<span data-validate-for="first_name"></span>
+	</div>
+
+	<div class="form-group col-sm-6">
+		<input type="text" name="last_name" class="form-control" placeholder="Last Name"/>
+		<span data-validate-for="last_name"></span>
+	</div>
+
+	<div class="form-group col-sm-6">
+		<input type="email" name="email" class="form-control" placeholder="Email"/>
+		<span data-validate-for="email"></span>
+	</div>
+
+	<div class="form-group col-sm-6">
+		<input type="text" name="phone" class="form-control" placeholder="Phone"/>
+		<span data-validate-for="phone"></span>
+	</div>
+
+	<div class="form-group col-sm-6">
+		<input type="text" name="position" class="form-control" placeholder="Position"/>
+		<span data-validate-for="position"></span>
+	</div>
+
+	<div class="form-group col-sm-6">
+		<input type="text" name="location" class="form-control" placeholder="Location"/>
+		<span data-validate-for="location"></span>
+	</div>
+
+	<div class="form-group col-sm-12">
+		<textarea type="text" name="resume_note" id="resume_note" class="form-control" placeholder="Note"/></textarea>
+		<span data-validate-for="resume_note"></span>
+	</div>
+
+
+	<div class="form-group form-repeater">
+		<h3>Education (Optional)</h3>
+		<div data-repeater-list="resume_education">
+			<div data-repeater-item>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_education[institute]" id="resume_education_institute" class="form-control" placeholder="Institute"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_education[qualification]" id="resume_education_qualification" class="form-control" placeholder="Qualification"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="date" name="resume_education[from]" id="resume_education_from" class="form-control" placeholder="From"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="date" name="resume_education[to]" id="resume_education_to" class="form-control" placeholder="To"/>
+				</div>
+				<input class="btn btn-delete btn-primary btn-xs" data-repeater-delete type="button" value="Delete"/>
+			</div>
+		</div>
+		<input class="btn btn-add btn-primary btn-xs" data-repeater-create type="button" value="Add"/>
+	</div>
+
+	<div class="form-group col-sm-12">
+		<textarea name="education_note" id="resume_education_note" class="form-control" placeholder="Note"/></textarea>
+	</div>
+
+	<div class="form-group form-repeater">
+		<h3>Experience (Optional)</h3>
+		<div data-repeater-list="resume_experience">
+			<div data-repeater-item>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_experience[employer]" id="resume_experience_employer" class="form-control" placeholder="Employer"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_experience[position]" id="resume_experience_position" class="form-control" placeholder="Position"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="date" name="resume_experience[from]" id="resume_experience_from" class="form-control" placeholder="From"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="date" name="resume_experience[to]" id="resume_experience_to" class="form-control" placeholder="To"/>
+				</div>
+				<input class="btn btn-delete btn-primary btn-xs" data-repeater-delete type="button" value="Delete"/>
+			</div>
+		</div>
+		<input class="btn btn-add btn-primary btn-xs" data-repeater-create type="button" value="Add"/>
+	</div>
+
+	<div class="form-group col-sm-12">
+		<textarea name="experience_note" id="resume_experience_note" class="form-control" placeholder="Note"/></textarea>
+	</div>
+
+	<div class="form-group form-repeater">
+		<h3>Language (Optional)</h3>
+		<div data-repeater-list="resume_language">
+			<div data-repeater-item>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_language[name]" id="resume_language_name" class="form-control" placeholder="Language Name"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_language[percentage]" id="resume_language_percentage" class="form-control" placeholder="Language Percentage"/>
+				</div>
+				<input class="btn btn-delete btn-primary btn-xs" data-repeater-delete type="button" value="Delete"/>
+			</div>
+		</div>
+		<input class="btn btn-add btn-primary btn-xs" data-repeater-create type="button" value="Add"/>
+	</div>
+
+	<div class="form-group form-repeater">
+		<h3>Skill (Optional)</h3>
+		<div data-repeater-list="resume_skill">
+			<div data-repeater-item>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_skill[name]" id="resume_skill_name" class="form-control" placeholder="Skill Name"/>
+				</div>
+				<div class="form-group col-sm-6">
+					<input type="text" name="resume_skill[percentage]" id="resume_skill_percentage" class="form-control" placeholder="Skill Percentage"/>
+				</div>
+				<input class="btn btn-delete btn-primary btn-xs" data-repeater-delete type="button" value="Delete"/>
+			</div>
+		</div>
+		<input class="btn btn-add btn-primary btn-xs" data-repeater-create type="button" value="Add"/>
+	</div>
+
+	<div class="form-group text-right">
+		<button class="btn btn-primary btn-send" data-attach-loading>Submit</button>
+	</div>
+	<div id="form_flash_message"></div>
+</form>

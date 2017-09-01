@@ -1,0 +1,24 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: jetminds.job::lang.models.vacancy.columns.id
+        searchable: true
+
+    title:
+        label: jetminds.job::lang.models.vacancy.columns.title
+        searchable: true
+
+    created_at:
+        label: jetminds.job::lang.models.vacancy.columns.created_at
+        type: date
+
+    updated_at:
+        label: jetminds.job::lang.models.vacancy.columns.updated_at
+        type: timesince
+
+    published_at:
+        label: jetminds.job::lang.models.vacancy.columns.published_at
+        type: timesince

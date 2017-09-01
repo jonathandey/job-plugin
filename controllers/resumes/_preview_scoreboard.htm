@@ -1,0 +1,33 @@
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('jetminds.job::lang.controllers.resumes.form.preview.candidate.name.label')) ?></h4>
+    <?php if ($formModel->first_name): ?>
+        <p><?= e($formModel->first_name) ?> <?= e($formModel->last_name) ?></p>
+    <?php endif ?>
+    <p class="description">
+	    <?= e($formModel->location) ?>
+    </p>
+</div>
+
+<?php if ($formModel->phone): ?>
+<div class="scoreboard-item title-value">
+	<h4><?= e(trans('jetminds.job::lang.controllers.resumes.form.preview.candidate.contact.label')) ?></h4>
+	<p title="<?= e($formModel->phone) ?>">
+		<?= e($formModel->phone) ?>
+	</p>
+	<p class="description">
+		<a href="mailto:<?= e($formModel->email) ?>">
+			<?= e($formModel->email) ?>
+		</a>
+	</p>
+</div>
+<?php endif ?>
+
+<?php if ($formModel->created_at): ?>
+    <div class="scoreboard-item title-value">
+        <h4><?= e(trans('jetminds.job::lang.controllers.resumes.form.preview.candidate.joined.label')) ?></h4>
+        <p title="<?= $formModel->created_at->diffForHumans() ?>">
+            <?= $formModel->created_at->toFormattedDateString() ?>
+        </p>
+        <p class="description"></p>
+    </div>
+<?php endif ?>

@@ -1,0 +1,155 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        # Contact
+        first_name:
+            label: jetminds.job::lang.models.resume.fields.first_name.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: left
+        last_name:
+            label: jetminds.job::lang.models.resume.fields.last_name.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: right
+        email:
+            label: jetminds.job::lang.models.resume.fields.email.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: left
+        phone:
+            label: jetminds.job::lang.models.resume.fields.phone.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: right
+        position:
+            label: jetminds.job::lang.models.resume.fields.position.label
+            placeholder: jetminds.job::lang.models.resume.fields.position.placeholder
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: left
+        location:
+            label: jetminds.job::lang.models.resume.fields.location.label
+            placeholder: jetminds.job::lang.models.resume.fields.location.placeholder
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: text
+            span: right
+        resume_note:
+            label: jetminds.job::lang.models.resume.fields.note.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.contact
+            type: textarea
+            size: huge
+            span: full
+
+        # Education
+        resume_education:
+            label: jetminds.job::lang.models.resume.fields.education.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            prompt: jetminds.job::lang.models.resume.fields.education.prompt
+            type: repeater
+            span: left
+            form:
+                fields:
+                    institute:
+                        label: jetminds.job::lang.models.resume.fields.education.form.fields.institute.label
+                        type: text
+                        span: left
+                    qualification:
+                        label: jetminds.job::lang.models.resume.fields.education.form.fields.qualification.label
+                        type: text
+                        span: right
+                    from:
+                        label: jetminds.job::lang.models.resume.fields.education.form.fields.from.label
+                        type: datepicker
+                        mode: date
+                        span: left
+                    to:
+                        label: jetminds.job::lang.models.resume.fields.education.form.fields.to.label
+                        type: datepicker
+                        mode: date
+                        span: right
+
+        # Experience
+        resume_experience:
+            label: jetminds.job::lang.models.resume.fields.experience.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            prompt: jetminds.job::lang.models.resume.fields.experience.prompt
+            type: repeater
+            span: right
+            form:
+                fields:
+                    employer:
+                        label: jetminds.job::lang.models.resume.fields.experience.form.fields.employer.label
+                        type: text
+                        span: left
+                    position:
+                        label: jetminds.job::lang.models.resume.fields.experience.form.fields.position.label
+                        type: text
+                        span: right
+                    from:
+                        label: jetminds.job::lang.models.resume.fields.experience.form.fields.from.label
+                        type: datepicker
+                        mode: date
+                        span: left
+                    to:
+                        label: jetminds.job::lang.models.resume.fields.experience.form.fields.to.label
+                        type: datepicker
+                        mode: date
+                        span: right
+
+        education_note:
+            label: jetminds.job::lang.models.resume.fields.education.form.fields.note.label
+            placeholder: jetminds.job::lang.models.resume.fields.education.form.fields.note.placeholder
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            type: textarea
+            size: huge
+            span: left
+
+        experience_note:
+            label: jetminds.job::lang.models.resume.fields.experience.form.fields.note.label
+            placeholder: jetminds.job::lang.models.resume.fields.experience.form.fields.note.placeholder
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            type: textarea
+            size: huge
+            span: right
+
+        resume_language:
+            label: jetminds.job::lang.models.resume.fields.language.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            prompt: jetminds.job::lang.models.resume.fields.language.prompt
+            type: repeater
+            span: left
+            form:
+                fields:
+                    name:
+                        label: jetminds.job::lang.models.resume.fields.language.form.fields.name.label
+                        type: text
+                        span: left
+                    percentage:
+                        label: jetminds.job::lang.models.resume.fields.language.form.fields.percentage.label
+                        placeholder: jetminds.job::lang.models.resume.fields.language.form.fields.percentage.placeholder
+                        type: text
+                        span: right
+
+        resume_skill:
+            label: jetminds.job::lang.models.resume.fields.skill.label
+            tab: jetminds.job::lang.models.resume.fields.tabs.detail
+            prompt: jetminds.job::lang.models.resume.fields.skill.prompt
+            type: repeater
+            span: right
+            form:
+                fields:
+                    name:
+                        label: jetminds.job::lang.models.resume.fields.skill.form.fields.name.label
+                        placeholder: jetminds.job::lang.models.resume.fields.skill.form.fields.name.placeholder
+                        type: text
+                        span: left
+                    percentage:
+                        label: jetminds.job::lang.models.resume.fields.skill.form.fields.percentage.label
+                        placeholder: jetminds.job::lang.models.resume.fields.skill.form.fields.percentage.placeholder
+                        type: text
+                        span: right

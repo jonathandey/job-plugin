@@ -1,0 +1,29 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: jetminds.job::lang.models.resume.columns.id.label
+        searchable: true
+    position:
+        label: jetminds.job::lang.models.resume.columns.position.label
+        searchable: true
+    first_name:
+        label: jetminds.job::lang.models.resume.columns.first_name.label
+        searhable: true
+    last_name:
+        label: jetminds.job::lang.models.resume.columns.last_name.label
+        searhable: true
+    phone:
+        label: jetminds.job::lang.models.resume.columns.phone.label
+        searhable: true
+    email:
+        label: jetminds.job::lang.models.resume.columns.email.label
+        searhable: true
+    created_at:
+        label: Created at
+        type: timesince
+    updated_at:
+        label: Updated at
+        type: timesince
