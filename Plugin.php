@@ -101,28 +101,28 @@ class Plugin extends PluginBase
     {
         return [
             'jetminds.job.access_plugin' => [
-                'tab'   => 'jetminds.job::lang.access.tab',
+                'tab'   => 'jetminds.job::lang.access.tab.general',
                 'label' => 'jetminds.job::lang.access.plugin'
             ],
             'jetminds.job.access_categories' => [
-	            'tab'   => 'jetminds.job::lang.access.tab',
+	            'tab'   => 'jetminds.job::lang.access.tab.general',
 	            'label' => 'jetminds.job::lang.access.categories'
             ],
             'jetminds.job.access_vacancies' => [
-                'tab'   => 'jetminds.job::lang.access.tab',
+                'tab'   => 'jetminds.job::lang.access.tab.general',
                 'label' => 'jetminds.job::lang.access.vacancies'
             ],
             'jetminds.job.access_resumes' => [
-	            'tab'   => 'jetminds.job::lang.access.tab',
+	            'tab'   => 'jetminds.job::lang.access.tab.general',
 	            'label' => 'jetminds.job::lang.access.resumes'
             ],
             'jetminds.job.access_settings' => [
-	            'tab'   => 'jetminds.job::lang.access.tab',
+	            'tab'   => 'jetminds.job::lang.access.tab.general',
 	            'label' => 'jetminds.job::lang.access.settings'
             ],
-            'jetminds.oms.access_publish' => [
-	            'tab' => 'jetminds.oms::lang.access.tab',
-	            'label' => 'jetminds.oms::lang.access.publish'
+            'jetminds.job.access_publish' => [
+	            'tab' => 'jetminds.job::lang.access.tab.publish',
+	            'label' => 'jetminds.job::lang.access.publish'
             ],
         ];
     }

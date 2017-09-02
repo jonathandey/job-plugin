@@ -2,13 +2,16 @@
 
 return [
 	'plugin' => [
-		'name' => 'Jobs',
+		'name' => 'Job',
 		'description' => 'This plugin is extendible and easy to use. Created to manage various job pages via October CMS.',
 		'author' => 'Jet Minds'
 	],
 
 	'access' => [
-		'tab' => 'Job',
+		'tab' => [
+			'general' => 'Job',
+			'publish' => 'Job publish'
+		],
 		'plugin' => 'Access Job',
         'categories' => 'Access Categories',
 		'vacancies' => 'Access Vacancies',
