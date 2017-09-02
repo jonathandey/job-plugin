@@ -3,7 +3,7 @@
 return [
 	'plugin' => [
 		'name' => 'Jobs',
-		'description' => 'Create amazing job listings vacancies and let guests apply to them',
+		'description' => 'This plugin is extendible and easy to use. Created to manage various job pages via October CMS.',
 		'author' => 'Jet Minds'
 	],
 
