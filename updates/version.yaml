@@ -5,5 +5,5 @@
 1.0.2:
     - Adding new features
     - create_categories_table.php
-1.0.3
+1.0.3:
     - Bug fixed (small fixes in the language file)
