@@ -24,9 +24,6 @@ class Resumes extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
-	/**
-	 * @var string Body CSS class to add to the layout.
-	 */
 	public $bodyClass = 'compact-container layout-resume';
 
 	public $requiredPermissions = ['jetminds.oms.access_resumes'];

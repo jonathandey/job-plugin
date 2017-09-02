@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/jetminds/job/models/resume/columns.yaml
+list: $/jetminds/job/models/category/columns.yaml
 
 # Model Class name
-modelClass: JetMinds\Job\Models\Resume
+modelClass: JetMinds\Job\Models\Category
 
 # List Title
-title: jetminds.job::lang.controllers.resumes.config.list.title
+title: jetminds.job::lang.controllers.categories.config.list.title
 
 # Link URL for each record
-recordUrl: jetminds/job/resumes/preview/:id
+recordUrl: jetminds/job/categories/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records
@@ -33,6 +33,8 @@ defaultSort:
 
 # Display checkboxes next to each record
 showCheckboxes: true
+
+showTree: true
 
 # Toolbar widget configuration
 toolbar:

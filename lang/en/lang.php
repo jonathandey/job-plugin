@@ -9,8 +9,8 @@ return [
 
 	'access' => [
 		'tab' => 'Job',
-		"pub" => 'Job Publish',
 		'plugin' => 'Access Job',
+        'categories' => 'Access Categories',
 		'vacancies' => 'Access Vacancies',
 		'resumes' => 'Access Resumes',
 		'settings' => 'Access Settings',
@@ -22,29 +22,60 @@ return [
 			'job' => 'Job'
 		],
 		'secondary' => [
+		    'categories' => 'Categories',
 			'vacancies' => 'Vacancies',
 			'resumes' => 'Resumes',
 			'settings' => 'Settings',
 		],
+        'item' => [
+            'category' => 'Job category',
+            'all_categories' => 'All job categories',
+            'vacancy' => 'Job vacancy',
+            'all_vacancies' => 'All job vacancies'
+        ]
 	],
 
 	'components' => [
+	    'categories' => [
+            'details' => [
+                'name' => 'Category List',
+                'description' => 'Displays a list of job categories on the page.'
+            ],
+            'properties' => [
+                'slug' => [
+                    'title' => 'Category Slug',
+                    'description' => 'Look up the job category using the supplied slug value. This property is used by the default component partial for marking the currently active category.'
+                ],
+                'display' => [
+                    'title' => 'Display empty categories',
+                    'description' => 'Show categories that do not have any vacancies.'
+                ],
+                'category' => [
+                    'title' => 'Category page',
+                    'description' => 'Name of the category page file for the "Posted into" category links. This property is used by the default component partial.',
+                ]
+            ],
+        ],
 		'submit_resume' => [
 			'details' => [
 				'name' => 'Submit Resume',
-				'description' => 'No description provided yet...',
+				'description' => 'Use the component to display a submit form resume a page.',
 			],
 		],
 		'vacancies' => [
 			'details' => [
 				'name' => 'Vacancies',
-				'description' => 'No description provided yet...',
+				'description' => 'Use the component to display a list of job vacancies on a page.',
 			],
 			'properties' => [
 				'pagination' => [
 					'title' => 'Page number',
 					'description' => 'This value is used to determine what page the user is on.',
 				],
+                'filter' => [
+                    'title' => 'Category filter',
+                    'description' => 'Enter a category slug or URL parameter to filter the vacancies by. Leave empty to show all vacancies.',
+                ],
 				'per_page' => [
 					'title' => 'Vacancies per page',
 					'description' => '',
@@ -58,7 +89,11 @@ return [
 					'title' => 'Vacancy order',
 					'description' => 'Attribute on which the vacancies should be ordered',
 				],
-				'page' => [
+                'category' => [
+                    'title' => 'Category page',
+                    'description' => 'Name of the category page file for the "Posted into" category links. This property is used by the default component partial.',
+                ],
+				'vacancy' => [
 					'title' => 'Vacancy page',
 					'description' => 'Name of the Organization Management System vacancy page file for the "Learn more" links. This property is used by the default component partial.',
 				],
@@ -68,18 +103,58 @@ return [
 		'vacancy' => [
 			'details' => [
 				'name' => 'Vacancy',
-				'description' => 'No description provided yet...',
+				'description' => 'Use the component to display a Job Vacancy on a page.',
 			],
 			'properties' => [
 				'slug' => [
 					'title' => 'Vacancy Slug',
 					'description' => 'Look up the OMS vacancy using the supplied slug value.'
 				],
+                'category' => [
+                    'title' => 'Category page',
+                    'description' => 'Name of the category page file for the "Posted into" category links. This property is used by the default component partial.',
+                ]
 			],
 		],
 	],
 
 	'controllers' => [
+        'categories' => [
+            'config' => [
+                'form' => [
+                    'title' => 'Category',
+                    'create' => [
+                        'title' => 'Create Category'
+                    ],
+                    'update' => [
+                        'title' => 'Edit Category'
+                    ],
+                    'preview' => [
+                        'title' => 'Preview Category'
+                    ],
+                ],
+                'list' => [
+                    'title' => 'Manage Categories'
+                ],
+                'reorder' => [
+                    'title' => 'Categories'
+                ],
+            ],
+            'toolbar' => [
+                'buttons' => [
+                    'new' => [
+                        'label' => 'New Category'
+                    ],
+                    'delete' => [
+                        'label' => 'Delete Selected',
+                        'confirm' => 'Are you sure?'
+                    ],
+                    'reorder' => [
+                        'label' => 'Reorder Categories'
+                    ],
+                ],
+            ],
+        ],
 		'resumes' => [
 			'config' => [
 				'form' => [
@@ -229,6 +304,30 @@ return [
 	],
 
 	'models' => [
+	    'category' => [
+	        'columns' => [
+                'id' => 'ID',
+                'name' => 'Category Name',
+                'slug' => 'Category Url',
+                'created_at' => 'Created at',
+                'updated_at' => 'Updated at',
+            ],
+            'fields' => [
+                'name' => [
+                    'label' => 'Category Name',
+                ],
+                'slug' => [
+                    'label' => 'Category Url',
+                ],
+                'parent' => [
+                    'label' => 'Parent Category',
+                    'empty' => '-- no parent --'
+                ],
+                'description' => [
+                    'label' => 'Category Description',
+                ],
+            ],
+        ],
 		'resume' => [
 			'columns' => [
 				'id' => [
@@ -409,9 +508,14 @@ return [
 					'label' => 'Expectations',
 					'prompt' => 'Add new expectation',
 				],
+                'category' => [
+                    'label' => 'Category',
+                    'empty' => '-- select category --'
+                ],
 
 				'tabs' => [
 					'general' => 'General',
+                    'links' => 'Links',
 					'requirements' => 'Requirements',
 					'expectations' => 'Expectations',
 				]

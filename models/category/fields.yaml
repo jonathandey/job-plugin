@@ -1,0 +1,26 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: jetminds.job::lang.models.category.fields.name.label
+        type: text
+        span: left
+
+    slug:
+        label: jetminds.job::lang.models.category.fields.slug.label
+        span: right
+        preset:
+            field: name
+            type: slug
+
+    parent:
+            label: jetminds.job::lang.models.category.fields.parent.label
+            type: dropdown
+
+    description:
+        label: jetminds.job::lang.models.category.fields.description.label
+        size: large
+        span: full
+        type: textarea

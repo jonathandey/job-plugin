@@ -1,18 +1,9 @@
-subject = "Contact Us Form Message Received"
+subject = "New resume received"
 ==
-You received a message from {{name}}.
+You received a resume from {{first_name}} {{last_name}}.
 -------------------------------------
-Subject: {{ subject }}
-Message: {{ message_body }}
--------------------------------------
-To read message go to {{url_message}}
+To read resume go to {{url_message}}
 ==
-<p>You received a message from <strong>{{name}}</strong></p>
-
-<div style="border: 1px solid black;padding: 5px;">
-    <strong>Subject: {{ subject }}</strong>
-    <hr>
-    <p>{{ message_body | nl2br }}</p>
-</div>
-<p>Click <a href="{{url_message}}">here</a> to read the message online.</p>
+<p>You received a resume from <strong>{{first_name}} {{last_name}}</strong></p>
+<p>Click <a href="{{url_message}}">here</a> to read the resume online.</p>
     

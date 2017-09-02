@@ -1,4 +1,7 @@
 1.0.1:
-    - Initialize Job
+    - Initialize Job Plugin
     - create_resumes_table.php
     - create_vacancies_table.php
+1.0.2:
+    - Adding new features
+    - create_categories_table.php

@@ -1,0 +1,17 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: 'jetminds.job::lang.controllers.categories.config.reorder.title'
+
+# Attribute name
+nameFrom: name
+
+# Model Class name
+modelClass: JetMinds\Job\Models\Category
+
+# Toolbar widget configuration
+toolbar:
+    # Partial for toolbar buttons
+    buttons: reorder_toolbar

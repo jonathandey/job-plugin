@@ -36,6 +36,20 @@ tabs:
                 condition: checked
             span: left
 
+        excerpt:
+            label: jetminds.job::lang.models.vacancy.fields.excerpt.label
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.general
+            type: textarea
+            size: small
+            span: full
+
+        categories:
+            tab: jetminds.job::lang.models.vacancy.fields.tabs.links
+            label: jetminds.job::lang.models.vacancy.fields.category.label
+            emptyOption: jetminds.job::lang.models.vacancy.fields.category.empty
+            type: relation
+            span: left
+
         description:
             label: jetminds.job::lang.models.vacancy.fields.description.label
             tab: jetminds.job::lang.models.vacancy.fields.tabs.general

@@ -17,7 +17,6 @@ class CreateResumesTable extends Migration
 	        $table->string('phone')->nullable();
 	        $table->string('position')->nullable();
 	        $table->longText('location')->nullable();
-
 	        $table->string('resume_category')->nullable();
 	        $table->string('resume_education')->nullable();
 	        $table->longText('education_note')->nullable();
@@ -26,7 +25,6 @@ class CreateResumesTable extends Migration
 	        $table->string('resume_language')->nullable();
 	        $table->string('resume_skill')->nullable();
 	        $table->longText('resume_note')->nullable();
-
 	        $table->boolean('is_invite')->default(1);
             $table->timestamps();
         });

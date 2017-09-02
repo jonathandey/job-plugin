@@ -3,7 +3,8 @@
 use Redirect;
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
-use JetMinds\Job\Models\Vacancy as listVacancies;
+use JetMinds\Job\Models\Vacancy as JobVacancy;
+use JetMinds\Job\Models\Category as JobCategory;
 
 class Vacancies extends ComponentBase
 {
@@ -19,6 +20,12 @@ class Vacancies extends ComponentBase
 	 */
 	public $pageParam;
 
+    /**
+     * If the post list should be filtered by a category, the model to use.
+     * @var Model
+     */
+    public $category;
+
 	/**
 	 * Message to display when there are no messages.
 	 * @var string
@@ -30,6 +37,12 @@ class Vacancies extends ComponentBase
 	 * @var string
 	 */
 	public $vacancyPage;
+
+    /**
+     * Reference to the page name for linking to categories.
+     * @var string
+     */
+    public $categoryPage;
 
 	/**
 	 * If the vacancy list should be ordered by another attribute.
@@ -54,6 +67,12 @@ class Vacancies extends ComponentBase
 		        'type'        => 'string',
 		        'default'     => '{{ :page }}',
 	        ],
+            'categoryFilter' => [
+                'title'       => 'jetminds.job::lang.components.vacancies.properties.filter.title',
+                'description' => 'jetminds.job::lang.components.vacancies.properties.filter.description',
+                'type'        => 'string',
+                'default'     => ''
+            ],
 	        'vacanciesPerPage' => [
 		        'title'             => 'jetminds.job::lang.components.vacancies.properties.per_page.title',
 		        'type'              => 'string',
@@ -74,14 +93,26 @@ class Vacancies extends ComponentBase
 		        'type'        => 'dropdown',
 		        'default'     => 'published_at desc'
 	        ],
+            'categoryPage' => [
+                'title'       => 'jetminds.job::lang.components.vacancies.properties.category.title',
+                'description' => 'jetminds.job::lang.components.vacancies.properties.category.description',
+                'type'        => 'dropdown',
+                'default'     => 'job/category',
+                'group'       => 'Links',
+            ],
 	        'vacancyPage' => [
-		        'title'       => 'jetminds.job::lang.components.vacancies.properties.page.title',
-		        'description' => 'jetminds.job::lang.components.vacancies.properties.page.description',
+		        'title'       => 'jetminds.job::lang.components.vacancies.properties.vacancy.title',
+		        'description' => 'jetminds.job::lang.components.vacancies.properties.vacancy.description',
 		        'type'        => 'dropdown',
-		        'default'     => 'vacancies/detail',
+		        'default'     => 'job/vacancy',
 		        'group'       => 'Links',
 	        ]
         ];
+    }
+
+    public function getCategoryPageOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
 	public function getVacancyPageOptions()
@@ -91,13 +122,14 @@ class Vacancies extends ComponentBase
 
 	public function getSortOrderOptions()
 	{
-		return listVacancies::$allowedSortingOptions;
+		return JobVacancy::$allowedSortingOptions;
 	}
 
 	public function onRun()
 	{
 		$this->prepareVars();
 
+        $this->category = $this->page['category'] = $this->loadCategory();
 		$this->vacancies = $this->page['vacancies'] = $this->listVacancies();
 
 		/*
@@ -121,24 +153,49 @@ class Vacancies extends ComponentBase
 		 * Page links
 		 */
 		$this->vacancyPage = $this->page['vacancyPage'] = $this->property('vacancyPage');
+        $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
 	}
 
 	protected function listVacancies()
 	{
-		$vacancies = listVacancies::listFrontEnd([
+        $category = $this->category ? $this->category->id : null;
+
+		$vacancies = JobVacancy::with('categories')->listFrontEnd([
 			'page'     => $this->property('pageNumber'),
 			'sort'     => $this->property('sortOrder'),
 			'perPage'  => $this->property('vacanciesPerPage'),
-			'search'   => trim(input('search'))
-		]);
+			'search'   => trim(input('search')),
+            'category'   => $category
+        ]);
 
 		/*
          * Add a "url" helper attribute for linking to each vacancy
          */
 		$vacancies->each(function($vacancy) {
 			$vacancy->setUrl($this->vacancyPage, $this->controller);
+
+            $vacancy->categories->each(function($category) {
+                $category->setUrl($this->categoryPage, $this->controller);
+            });
 		});
 
 		return $vacancies;
 	}
+
+    protected function loadCategory()
+    {
+        if (!$slug = $this->property('categoryFilter')) {
+            return null;
+        }
+
+        $category = new JobCategory;
+
+        $category = $category->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
+            ? $category->transWhere('slug', $slug)
+            : $category->where('slug', $slug);
+
+        $category = $category->first();
+
+        return $category ?: null;
+    }
 }

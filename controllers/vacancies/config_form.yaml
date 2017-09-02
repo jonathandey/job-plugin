@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: jetminds.job::lang.controllers.vacansies.config.form.name
+name: jetminds.job::lang.controllers.vacancies.config.form.name
 
 # Model Form Field configuration
 form: $/jetminds/job/models/vacancy/fields.yaml

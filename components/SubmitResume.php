@@ -108,7 +108,7 @@ class SubmitResume extends ComponentBase
 
 		Mail::send('jetminds.job::mail.notification', $vars, function($message) use ($vars) {
 			$message->to(Settings::get('notification_email'));
-			$message->replyTo($vars['email'], $vars['first_name']);
+			$message->replyTo($vars['email'], $vars['first_name'], $vars['last_name']);
 		});
 	}
 

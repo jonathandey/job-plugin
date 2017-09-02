@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: jetminds.job::lang.controllers.categories.config.form.title
+
+# Model Form Field configuration
+form: $/jetminds/job/models/category/fields.yaml
+
+# Model Class name
+modelClass: JetMinds\Job\Models\Category
+
+# Default redirect location
+defaultRedirect: jetminds/job/categories
+
+# Create page
+create:
+    title: jetminds.job::lang.controllers.categories.config.form.create.title
+    redirect: jetminds/job/categories/update/:id
+    redirectClose: jetminds/job/categories
+
+# Update page
+update:
+    title: jetminds.job::lang.controllers.categories.config.form.update.title
+    redirect: jetminds/job/categories
+    redirectClose: jetminds/job/categories
+
+# Preview page
+preview:
+    title: jetminds.job::lang.controllers.categories.config.form.preview.title
