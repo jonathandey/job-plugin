@@ -15,8 +15,8 @@ class CreateVacanciesTable extends Migration
 	        $table->string('slug')->index();
 	        $table->text('excerpt')->nullable();
 	        $table->longText('description')->nullable();
-	        $table->string('requirements')->nullable();
-	        $table->string('expectations')->nullable();
+	        $table->json('requirements')->nullable();
+	        $table->json('expectations')->nullable();
 	        $table->boolean('published')->default(false);
 	        $table->timestamp('published_at')->nullable();
             $table->timestamps();
