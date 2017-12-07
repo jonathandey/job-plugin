@@ -139,7 +139,7 @@ class Plugin extends PluginBase
                 'label'       => 'jetminds.job::lang.menu.primary.job',
                 'url'         => Backend::url('jetminds/job/resumes'),
                 'iconSvg'     => 'plugins/jetminds/job/assets/images/job-search.svg',
-                'permissions' => ['jetminds.job.access_job'],
+                'permissions' => ['jetminds.job.access_plugin'],
                 'order'       => 310,
                 'sideMenu' => [
 	                'resumes' => [
