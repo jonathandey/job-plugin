@@ -16,7 +16,7 @@ class Vacancies extends Controller
     public $formConfig = 'config_form.yaml';
     public $listConfig = 'config_list.yaml';
 
-	public $requiredPermissions = ['jetminds.oms.access_vacancies'];
+	public $requiredPermissions = ['jetminds.job.access_vacancies'];
 
     public function __construct()
     {

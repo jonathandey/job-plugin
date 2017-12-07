@@ -26,7 +26,7 @@ class Resumes extends Controller
 
 	public $bodyClass = 'compact-container layout-resume';
 
-	public $requiredPermissions = ['jetminds.oms.access_resumes'];
+	public $requiredPermissions = ['jetminds.job.access_resumes'];
 
     public function __construct()
     {
