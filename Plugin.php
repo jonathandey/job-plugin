@@ -137,7 +137,7 @@ class Plugin extends PluginBase
         return [
             'job' => [
                 'label'       => 'jetminds.job::lang.menu.primary.job',
-                'url'         => Backend::url('jetminds/job/resumes'),
+                'url'         => Backend::url('jetminds/job/vacancies'),
                 'iconSvg'     => 'plugins/jetminds/job/assets/images/job-search.svg',
                 'permissions' => ['jetminds.job.access_plugin'],
                 'order'       => 310,
